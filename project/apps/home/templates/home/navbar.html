@@ -14,12 +14,12 @@
         </button>
         <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center ">
-                <li class="nav-item"><a class="nav-link {% if request.path == "/" %}active{% endif %}" aria-current="page" href="{% url 'home:index' %}">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link {% if request.path == "/" %} active {% endif %}" aria-current="page" href="{% url 'home:index' %}">Inicio</a></li>
                 {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link {% if request.path == "/producto/" %}active{% endif %}" href="{% url 'producto:index' %}">Productos</a></li>
                     <li class="nav-item"><a class="nav-link {% if request.path == "/venta/" %}active{% endif %}" href="{% url 'venta:index' %}">Ventas</a></li>
                     <li class="nav-item"><a class="nav-link text-bg-light">{{ user.username }}</a></li>
-                    {% if user.vendedor.avatar.url  %}
+                    {% if user.vendedor.avatar.url %}
                         <li class="nav-item"><img src="{{ user.vendedor.avatar.url }}" alt="avatar" class="img-fluid rounded-circle" style="height: 30px;" ></li>
                     {% else %}
                         <li class="nav-item"><img src="{% static 'venta/avatares.png' %}" alt="avatar" class="img-fluid rounded-circle" style="height: 30px;" ></li>
